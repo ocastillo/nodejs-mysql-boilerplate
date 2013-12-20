@@ -1,0 +1,45 @@
+body {
+    font-family: arial, helvetica;
+    font-size: 12px;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+    nav ul > li {
+        display: inline-block;
+        margin: 0;
+        padding: .25em;
+    }
+
+#messages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+    #messages li {
+        border: 1px solid #c8c8c8;
+        color: #333;
+        margin: .5em 0;
+        padding: .25em;
+    }
+    #messages li.error {
+        border-color: red;
+        color: red;
+    }
+    #messages li.success {
+        border-color: green;
+        color: green;
+    }
+
+form ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+    label {
+        display: block;
+        float: left;
+        width: 80px;
+    }

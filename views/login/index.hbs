@@ -1,0 +1,21 @@
+{{!< default}}
+
+<h1>Login</h1>
+
+<form action="/login" method="post">
+    <ul>
+        <li>
+            <label for="username">Email</label>
+            <input id="username" type="text" name="un" value="{{ username }}" >
+        </li>
+        <li>
+            <label for="password">Password</label>
+            <input id="password" type="password" name="pw" >
+        </li>
+        <li>
+            <button type="submit">Go</button>
+        </li>
+    </ul>
+</form>
+
+<p><a href="/register">Register</a></p>

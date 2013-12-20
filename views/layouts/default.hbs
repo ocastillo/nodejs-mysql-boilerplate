@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sample Node/Express/MySQL App</title>
+        <link rel="stylesheet" href="/css/layout.css">
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                {{#if isAuthenticated }}
+                    <li><a href="/home">My Home</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                {{else}}
+                    <li><a href="/login">Login</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+
+        <ul id="messages">
+        {{#each messages}}
+            <li class="{{ this.type }}">{{ this.message }}</li>
+        {{/each}}
+        </ul>
+
+        {{{body}}}
+    </body>
+</html>

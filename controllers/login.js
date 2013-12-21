@@ -54,12 +54,12 @@ exports.checkLogin = function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
         if (err || !user) {
             req.flash('username', req.body.un);
-            req.flash('error', '1 ' + info.message);
+            req.flash('error', info.message);
             return res.redirect('/login');
         }
         req.logIn(user, function(err) {
             if (err) {
-                req.flash('error', '2 ' + info.message);
+                req.flash('error', info.message);
                 return res.redirect('/login');
             }
             req.flash('success', 'Welcome!');

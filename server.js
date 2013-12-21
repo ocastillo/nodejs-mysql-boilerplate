@@ -5,6 +5,7 @@ var express = require('express'),
     passport = require('passport'),
     crypto = require('crypto'),
     Bookshelf = require('bookshelf'),
+    messages = require('./util/messages'),
     helpers = require('./util/helpers');
 
 var app = express();
@@ -18,23 +19,7 @@ app.use(passport.session());
 app.use(flash());
 app.use(express.static('./public'));
 //app.use(express.favicon(__dirname + '/public/images/shortcut-icon.png'));
-app.use(function(req, res, next) {
-    var error_messages = req.flash('error');
-    var info_messages = req.flash('info');
-    var success_messages = req.flash('success');
-    res.locals.messages = [];
-    for(var i in error_messages) {
-        res.locals.messages.push({type: 'error', message: error_messages[i]});
-    }
-    for(var i in info_messages) {
-        res.locals.messages.push({type: 'info', message: info_messages[i]});
-    }
-    for(var i in success_messages) {
-        res.locals.messages.push({type: 'success', message: success_messages[i]});
-    }   
-    res.locals.isAuthenticated = req.isAuthenticated();
-    next();
-});
+app.use(messages());
 
 app.engine('hbs', hbs.express3({
         layoutsDir: 'views/layouts',
@@ -46,18 +31,7 @@ app.set('views', 'views');
 helpers.registerhelpers(hbs);
 
 
-// Bookshelf ORM
-Bookshelf.mysqlAuth = Bookshelf.initialize({
-    client: 'mysql',
-    connection: {
-        host     : 'localhost',
-        user     : 'your_username',
-        password : 'your_password',
-        database : 'your_db_name'
-    },
-    // debug: true
-});
-
+require('./util/bookshelf')(Bookshelf);
 require('./util/auth')(passport);
 require('./routes')(app, passport);
 

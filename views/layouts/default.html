@@ -9,21 +9,21 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                {{#if isAuthenticated }}
+                {% if isAuthenticated %}
                     <li><a href="/home">My Home</a></li>
                     <li><a href="/logout">Logout</a></li>
-                {{else}}
+                {% else %}
                     <li><a href="/login">Login</a></li>
-                {{/if}}
+                {% endif %}
             </ul>
         </nav>
 
         <ul id="messages">
-        {{#each messages}}
-            <li class="{{ this.type }}">{{ this.message }}</li>
-        {{/each}}
+        {% for message in messages %}
+            <li class="{{ message.type }}">{{ message.message }}</li>
+        {% endfor %}
         </ul>
 
-        {{{body}}}
+        {% block content %}{% endblock %}
     </body>
 </html>

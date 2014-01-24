@@ -1,0 +1,11 @@
+    <ul>
+        {% for i in data %}
+        <li>{{ loop.key }}
+            {% if not i.length %}
+                {% include "basic-loop.html" with {data: i} only %}
+            {% else %}
+                = {{ i }}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>

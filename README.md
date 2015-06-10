@@ -13,3 +13,10 @@ This example only does local authentication, not authorization, with Passport.js
   * Rename util/bookshelf.example.js to util/bookshelf.js and adjust to your database settings
   * Go to http://yourdomain:3000/register to create a user
   * Start building your app!
+
+```shell
+
+    $ npm install
+    $ npm start
+
+```

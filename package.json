@@ -8,7 +8,7 @@
     "npm":  ">=1.2.x"
   },
   "scripts": {
-    "start": "NODE_ENV=development ./node_modules/.bin/nodemon server.js"
+    "start": "./node_modules/.bin/gulp"
   },
   "dependencies": {
     "express": "^4.12.4",
@@ -27,7 +27,10 @@
     "passport-local": "^1.0.0",
     "async": "^1.0.0",
     "view-helpers": "^0.1.5",
-    "serve-static": "^1.9.3"   
+    "serve-static": "^1.9.3",
+    "gulp": "^3.8.11",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-nodemon": "^2.0.2"
   },
   "devDependencies": {
     "nodemon": "latest"
